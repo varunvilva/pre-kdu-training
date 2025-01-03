@@ -20,7 +20,7 @@ export type User = {
   id: number;
   name: string;
   email: string;
-  role: string | undefined;
+  role?: string | undefined;
 };
 
 // Define the Admin interface that extends User and adds an additional property "permissions"

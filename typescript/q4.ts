@@ -11,6 +11,7 @@ interface User {
   id: number;
   name: string;
   email: string;
+  role?: string;
 }
 
 // Utility function to find a user by ID
@@ -22,31 +23,31 @@ export function findById(
   const user = users.find((user) => user.id === id);
 
   if (!user && throwError) {
-    throw new Error(`User with ID ${id} not found.`);
+    throw new Error(`User with ID ${id} not found`);
   }
 
   return user;
 }
 
 // Example usage
-const users: User[] = [
-  { id: 1, name: "Alice", email: "alice@company.com" },
-  { id: 2, name: "Bob", email: "bob@gmail.com" },
-  { id: 3, name: "Charlie", email: "charlie@company.com" },
-];
+// const users: User[] = [
+//   { id: 1, name: "Alice", email: "alice@company.com", role:"admin" },
+//   { id: 2, name: "Bob", email: "bob@gmail.com", role:"user" },
+//   { id: 3, name: "Charlie", email: "charlie@company.com", role:"user" },
+// ];
 
-// Scenario 1: Find user without throwing an error
-try {
-  const foundUser = findById(users, 2); // Should return Bob
-  console.log("Found User:", foundUser);
-} catch (error) {
-  console.error("Error:", error);
-}
+// // Scenario 1: Find user without throwing an error
+// try {
+//   const foundUser = findById(users, 2); // Should return Bob
+//   console.log("Found User:", foundUser);
+// } catch (error) {
+//   console.error("", error);
+// }
 
-// Scenario 2: Find user and throw an error if not found
-try {
-  const foundUser = findById(users, 5, true); // Should throw an error
-  console.log("Found User:", foundUser);
-} catch (error) {
-  console.error("Error:", error.message);
-}
+// // Scenario 2: Find user and throw an error if not found
+// try {
+//   const foundUser = findById(users, 5, true); // Should throw an error
+//   console.log("Found User:", foundUser);
+// } catch (error) {
+//   console.error("", error.message);
+// }

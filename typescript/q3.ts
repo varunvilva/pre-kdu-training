@@ -19,13 +19,14 @@ console.log("Even Numbers:", evenNumbers); // Output: [2, 4, 6]
 interface User {
   name: string;
   email: string;
+  role: string;
 }
 
 // Example usage with an array of User objects to filter users with "@company.com" in their email
 const users: User[] = [
-  { name: "Alice", email: "alice@company.com" },
-  { name: "Bob", email: "bob@gmail.com" },
-  { name: "Charlie", email: "charlie@company.com" },
+  { name: "Alice", email: "alice@company.com", role: "admin" },
+  { name: "Bob", email: "bob@gmail.com", role:"user" },
+  { name: "Charlie", email: "charlie@company.com", role:"user" },
 ];
 
 const companyUsers = filterArray(users, (user) => user.email.includes("@company.com"));
