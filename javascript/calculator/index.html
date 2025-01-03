@@ -1,0 +1,70 @@
+<!-- 
+Create a webpage with a simple calculator
+Create two fields to take input of two numbers
+Create 4 buttons to perform 4 operations - Add, Subtract, Divide, Multiply
+Alert the result based on the button that was clicked.
+
+Make sure the input fields have an id of num1 and num2
+Make sure the “Add” button has an id of add
+Make sure the “Subtract” button has an id of subtract
+Make sure the “Multiply” button has an id of multiply
+Make sure the “Divide” button has an id of divide
+
+The IDs should match or else the tests will fail.
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+ </head>
+ <body>
+    <div>
+    <input id="num1" type="number">
+    </div>
+    <div>
+    <input id="num2" type="number">
+    </div>
+    <div>
+        <button id="add" onClick="add()">Add</button>
+        <button id="subtract" onClick="subtract()">Subtract</button>
+        <button id="multiply" onClick="multiply()">Multiply</button>
+        <button id="divide" onClick="divide()">Divide</button>
+
+    </div>
+    <h1>
+        <div id="output">0</div>
+    </h1>
+    <script>
+        function getValue(){
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            return {num1,num2}
+        }
+        function add(){
+            const {num1, num2} = getValue();
+            document.getElementById("output").innerHTML = num1 + num2;
+        }
+        function subtract(){
+            const {num1, num2} = getValue();
+            document.getElementById("output").innerHTML = num1 - num2;
+        }
+        function multiply(){
+            const {num1, num2} = getValue();
+            document.getElementById("output").innerHTML = num1 * num2;
+        }
+        function divide(){
+            const {num1, num2} = getValue();
+            if(num2 !== 0){
+                document.getElementById("output").innerHTML = num1 / num2;
+            }
+            else{
+                document.getElementById("output").innerHTML = "DivideByZeroError"
+            }
+        }
+        
+    </script>
+ </body>
+ </html>
